@@ -4,10 +4,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
-import org.springframework.web.context.annotation.RequestScope;
-import org.springframework.web.context.annotation.SessionScope;
 
-import com.josh.demo.business.AnotherOrdersBusinessService;
+//import com.josh.demo.business.AnotherOrdersBusinessService;
 import com.josh.demo.business.FiveValidLogins;
 import com.josh.demo.business.OrdersBusinessService;
 import com.josh.demo.business.OrdersBusinessServiceInterface;
@@ -22,7 +20,7 @@ public class SpringConfig
 	{
 		return new OrdersBusinessService();
 	}
-	@Bean(name="securitySevice")
+	@Bean(name="securityService")
 	public SecurityServiceInterface getSecurityService()
 	{
 		return new FiveValidLogins();

@@ -4,13 +4,6 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 layout:decorate="layout/defaultTemplate.html">
 	<head>
 		<style>
-			body {
-				font-family: Arial, Helvetica, sans-serif;
-				}
-			form {
-				border: 3px solid #ccc;
-				}
-					
 			input[type=text], input[type=password] {
 				width: 100%;
 				padding: 12px 20px; margin: 8px 0;
@@ -69,13 +62,13 @@ layout:decorate="layout/defaultTemplate.html">
 				</div>
 				
 				<div class="container">
-					<lable for="uname"><b>Username</b></lable>
+					<lable for="uname" class="lable"><b>Username</b></lable>
 					<input type="text" th:field="${loginModel.username}" placeholder = "Enter username" name="uname" required>
 					<div class="fieldError">
 						<p th:if="${#fields.hasErrors('username')}" th:errors="${loginModel.username}">User Name Error</p>
 					</div>
 					
-					<lable for="psw"><b>Password</b></lable>
+					<lable for="psw" class="lable"><b>Password</b></lable>
 					<input type="password" th:field="${loginModel.password}" name ="psw" required>
 					<div class="fieldError">
 						<p th:if="${#fields.hasErrors('password')}" th:errors="${loginModel.password}">Password Error</p>
@@ -86,8 +79,7 @@ layout:decorate="layout/defaultTemplate.html">
 					<button type="submit">Login</button>
 					
 					<div class="container" style="background-color: #ddd">
-						<button type="button" class="cancelbtn">Cancel</button>
-						<span class="psw">Forgot <a href="#">password?</a></span>
+						<button type="button" class="cancelbtn" href="http://localhost:8080/home/">Cancel</button>
 					</div>
 					
 					<div th:if="${#fields.hasErrors('*')}">List of Errors</div>

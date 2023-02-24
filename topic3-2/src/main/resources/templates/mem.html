@@ -22,12 +22,30 @@ layout:decorate="layout/defaultTemplate.html">
 			text-align: center;
 		}
 		/* Table style - End*/
+		.search{
+			padding-left: 25%;
+			padding-right: 25%;
+		}
 	</style>
 </head>
 <body>
 	<div layout:fragment="content">
+		<!-- Title -->
 		<h1 th:text="${title}"></h1>
+
+		<!-- Searchbar -->
+		<form action="#" th:action="@{{name}}" method="get">
+			<div class="input-group mb-3 search">
+				<input type="text" name="name" class="form-control" placeholder="Search for memorabilia"  required>
+				<div class="input-group-append">
+					<button class="btn btn-outline-secondary" type="submit">Search</button>
+				</div>
+			</div>
+		</form>
+
+		<!-- Table -->
 		<table>
+			<!-- Table headers -->
 			<tr>
 				<th>ID</th>
 				<th>Image</th>
@@ -35,6 +53,7 @@ layout:decorate="layout/defaultTemplate.html">
 				<th>Price</th>
 				<th>Des.</th>
 			</tr>
+			<!-- Table items -->
 			<tr th:each="mem : ${mems}">
 				<td th:text="${mem.id}"></td>
 				<td th:text="${mem.img}"></td>

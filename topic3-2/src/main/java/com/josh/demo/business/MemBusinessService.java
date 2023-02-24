@@ -2,7 +2,6 @@ package com.josh.demo.business;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 import com.josh.model.MemModel;
@@ -12,12 +11,12 @@ public class MemBusinessService implements MemBusinessServiceInterface{
 	private List<MemModel> mem;
 	private void initializeOrders()
 	{
-		mem.add(new MemModel(0L, "000", "Darth Vadars Mask", 900000.00f, "It's what the bad guy wore in the star wars movie"));
+		mem.add(new MemModel(0L, "000", "Darth Vaders Mask", 900000.00f, "It's what the bad guy wore in the star wars movie"));
 		mem.add(new MemModel(1L, "001", "Lightsaber", 200000.00f, "goes vummmmmm"));
 		mem.add(new MemModel(2L, "002", "Animatronic T-rex", 355000000.00f, "Rawr"));
-		mem.add(new MemModel(3L, "003", "Harry potters wand", 30000.00f, "Debugus patronus, make this code workus"));
-		mem.add(new MemModel(4L, "004", "Keven chilli", 7.99f, "Passes down from Malone to Malone"));
-		mem.add(new MemModel(5L, "005", "Mc Lovin Driver license", 3000.00f, "Official Hawaii Driver license"));
+		mem.add(new MemModel(3L, "003", "Harry Potters Wand", 30000.00f, "Debugus patronus, make this code workus"));
+		mem.add(new MemModel(4L, "004", "Kevin chili", 7.99f, "Passes down from Malone to Malone"));
+		mem.add(new MemModel(5L, "005", "Mc Lovin's Driver License", 3000.00f, "Official Hawaii Driver license"));
 	}
 	@Override
 	public void test() {

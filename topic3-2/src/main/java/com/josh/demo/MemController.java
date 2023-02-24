@@ -8,12 +8,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.josh.demo.business.MemBusinessServiceInterface;
 import com.josh.model.MemModel;
 
 @Controller
-@RequestMapping("/orders")
+@RequestMapping("/mem")
 public class MemController {
 	
 	@Autowired
@@ -30,8 +31,10 @@ public class MemController {
 		return "mem";
 	}
 
-	@GetMapping("/search={name}")
-	public String searchForMem(@PathVariable(name="name") String name, Model model)
+	
+	@GetMapping("/{name}")
+	//public String searchForMem(@PathVariable(name="name", required=false) String name, Model model)
+	public String searchForMem(@RequestParam(name="name", required=false) String name, Model model)
 	{
 		List<MemModel> orders = ordersService.searchMem(name);
 

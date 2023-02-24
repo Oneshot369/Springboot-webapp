@@ -28,10 +28,47 @@ h1{
 }
 /* Header 1 - END*/
 
+/* Header 2 */
+h2{
+    color: black;
+    font-weight: bold;
+    font-size: large;
+    display: inline-block;
+    text-align: left;
+    width: 50px;
+    padding-top: 10px;
+}
+/* Header 2 - END*/
+
+/* mem input class */
+.mem-input{
+    width: 75%;
+    height: 40px;
+    border-radius: 10px;
+    border: var(--lGray) solid 2px;
+    float: right;
+}
+/* mem input class - END */
+
+/* input forms container class */
+.input-forms-cont{
+    padding-left: 20%;
+    padding-right: 20%;
+    margin-left: 30px;
+}
+/* input forms class container- END*/
+
+.input-form{
+    padding-bottom: 15px;
+    padding-top: 5px;
+    width: 90%;
+}
+
 /* Navbar */
 .navbar{
     background-color: var(--beige); 
     border:2px solid var(--black);
+    color: var(--black);
 }
 /* Navbar - END */
 
@@ -49,3 +86,10 @@ tr{
     color: var(--black)
 }
 /* tr - END*/
+
+/* Button */
+.btn{
+    background-color: #e1dfba;
+    color: var(--black);
+}
+/* Button - END*/

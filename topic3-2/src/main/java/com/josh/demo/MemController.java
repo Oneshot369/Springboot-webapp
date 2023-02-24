@@ -35,10 +35,15 @@ public class MemController {
 	public String searchForMem(@RequestParam(name="name", required=false) String name, Model model)
 	{
 		List<MemModel> orders = ordersService.searchMem(name);
+		if(name != "")
+		{
+			model.addAttribute("title", ordersService.getSearchTitle(name));
+			model.addAttribute("mems", orders);
+	
+			return "mem";
 
-		model.addAttribute("title", ordersService.getSearchTitle(name));
-		model.addAttribute("mems", orders);
-
+		}
+		showAllOrders(model);
 		return "mem";
 	}
 }

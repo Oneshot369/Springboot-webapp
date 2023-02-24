@@ -2,28 +2,27 @@ package com.josh.demo;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Scope;
-import org.springframework.context.annotation.ScopedProxyMode;
+import org.springframework.web.context.annotation.RequestScope;
 
 //import com.josh.demo.business.AnotherOrdersBusinessService;
-import com.josh.demo.business.FiveValidLogins;
-import com.josh.demo.business.OrdersBusinessService;
-import com.josh.demo.business.OrdersBusinessServiceInterface;
+import com.josh.demo.business.ValidLogins;
+import com.josh.demo.business.MemBusinessService;
+import com.josh.demo.business.MemBusinessServiceInterface;
 import com.josh.demo.business.SecurityServiceInterface;
 
 @Configuration
 public class SpringConfig 
 {
 	@Bean(name = "ordersBusinessService", initMethod="init", destroyMethod="destroy")
-	@Scope(value="prototype", proxyMode=ScopedProxyMode.TARGET_CLASS)
-	public OrdersBusinessServiceInterface getOrdersBusiness()
+	@RequestScope
+	public MemBusinessServiceInterface getOrdersBusiness()
 	{
-		return new OrdersBusinessService();
+		return new MemBusinessService();
 	}
 	@Bean(name="securityService")
 	public SecurityServiceInterface getSecurityService()
 	{
-		return new FiveValidLogins();
+		return new ValidLogins();
 	}
 	
 }

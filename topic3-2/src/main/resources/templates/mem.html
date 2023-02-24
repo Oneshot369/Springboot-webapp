@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" 
+layout:decorate="layout/defaultTemplate.html">
+<head>
+	<style>
+		*
+		{
+			font-family: Arial, Helvetica, sans-serif;
+		}
+		h2{
+			color:blue;
+		}
+		p{
+			font-style: italic;
+		}
+		table, th, td{
+			border: 1px solid black;
+			border-collapse: collapse;
+			padding:2px;
+		}
+	</style>
+</head>
+<body>
+	<div layout:fragment="content">
+		<h1 th:text="${title}"></h1>
+		<table>
+			<tr>
+				<th>ID</th>
+				<th>Image</th>
+				<th>Product Name</th>
+				<th>Price</th>
+				<th>Des.</th>
+			</tr>
+			<tr th:each="mem : ${mems}">
+				<td th:text="${mem.id}"></td>
+				<td th:text="${mem.img}"></td>
+				<td th:text="${mem.productName}"></td>
+				<td th:text="${mem.price}"></td>
+				<td th:text="${mem.description}"></td>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>

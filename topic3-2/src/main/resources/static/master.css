@@ -21,7 +21,10 @@ h1{
     color: black;
     font-weight: bolder;
     margin-left: 20%; 
-    margin-right: 20%; 
+    margin-right: 20%;
+
+    margin-bottom: 20px; 
+    margin-top: 10px; 
 }
 /* Header 1 - END*/
 

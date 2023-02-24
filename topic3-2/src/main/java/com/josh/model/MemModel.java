@@ -10,13 +10,13 @@ public class MemModel {
 	// image is set to null until we implement it
 	String img = "NULL";
 	
-	public MemModel(Long id, String img, String productName, float price, String quantity) {
+	public MemModel(Long id, String img, String productName, float price, String dec) {
 		super();
 		this.id = id;
 		this.img = img;
 		this.productName = productName;
 		this.price = price;
-		this.description = quantity;
+		this.description = dec;
 	}
 
 	public Long getId() {

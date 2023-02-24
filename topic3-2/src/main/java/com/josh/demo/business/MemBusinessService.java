@@ -2,39 +2,51 @@ package com.josh.demo.business;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 import com.josh.model.MemModel;
 
 public class MemBusinessService implements MemBusinessServiceInterface{
 	
-	private List<MemModel> orders;
+	private List<MemModel> mem;
+	private void initializeOrders()
+	{
+		mem.add(new MemModel(0L, "000", "Darth Vadars Mask", 900000.00f, "It's what the bad guy wore in the star wars movie"));
+		mem.add(new MemModel(1L, "001", "Lightsaber", 200000.00f, "goes vummmmmm"));
+		mem.add(new MemModel(2L, "002", "Animatronic T-rex", 355000000.00f, "Rawr"));
+		mem.add(new MemModel(3L, "003", "Harry potters wand", 30000.00f, "Debugus patronus, make this code workus"));
+		mem.add(new MemModel(4L, "004", "Keven chilli", 7.99f, "Passes down from Malone to Malone"));
+		mem.add(new MemModel(5L, "005", "Mc Lovin Driver license", 3000.00f, "Official Hawaii Driver license"));
+	}
 	@Override
 	public void test() {
 		System.out.println("If you can see this OrdersBusinessService looks like it works");
 	}
 
 	@Override
-	public List<MemModel> getOrders() {
-		orders.add(new MemModel(0L, "000", "Darth Vadars Mask", 900000.0f, "It is what the bad guy wheres in the star wars movie"));
-		orders.add(new MemModel(1L, "001", "Rock Climbing", 200.0f, "null"));
-		orders.add(new MemModel(2L, "002", "Shark Cage", 2000.0f, "null"));
-		orders.add(new MemModel(3L, "003", "Sky Diving", 339.0f, "null"));
-		orders.add(new MemModel(4L, "004", "Hiking", 10.0f, "null"));
-		orders.add(new MemModel(5L, "005", "Ice pick Climbing", 3000.0f, "null"));
-		
-		return orders;
+	public List<MemModel> getMem() {
+		//first update our list
+		initializeOrders();
+		//then return our list
+		return mem;
 	}
 
 	@Override
 	public String getTitle() {
 		// TODO Auto-generated method stub
-		return "These are the items on my bucket list";
+		return "Movie and Tv Memorabilia";
+	}
+
+	public String getSearchTitle(String search) {
+		// TODO Auto-generated method stub
+		return String.format("Results of Memorabilia with \"%s\" in the name", search);
 	}
 
 	@Override
 	public void init() {
 		// TODO Auto-generated method stub
-		orders = new ArrayList<MemModel>();
+		mem = new ArrayList<MemModel>();
 		System.out.println("Init method of the OrdersBusinessService was called");
 	}
 
@@ -42,6 +54,20 @@ public class MemBusinessService implements MemBusinessServiceInterface{
 	public void destroy() {
 		// TODO Auto-generated method stub
 		System.out.println("Destroy method of the OrdersBusinessService was called");
+	}
+
+	@Override
+	public List<MemModel> searchMem(String name) {
+		//first update our list
+		initializeOrders();
+		
+		List<MemModel> results = mem
+			.stream()
+			.filter(m -> m.getProductName().toLowerCase()
+				.contains(name.toLowerCase()))
+			.collect(Collectors.toList());
+
+		return results;
 	}
 
 }

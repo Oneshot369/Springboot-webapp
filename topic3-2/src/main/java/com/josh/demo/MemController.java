@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.josh.demo.business.MemBusinessServiceInterface;
@@ -21,11 +22,22 @@ public class MemController {
 	@GetMapping("/")
 	public String showAllOrders(Model model)
 	{
-		List<MemModel> orders = ordersService.getOrders();
+		List<MemModel> orders = ordersService.getMem();
 		
 		model.addAttribute("title", ordersService.getTitle());
 		model.addAttribute("mems", orders);
-		ordersService.test();
+	
+		return "mem";
+	}
+
+	@GetMapping("/search={name}")
+	public String searchForMem(@PathVariable(name="name") String name, Model model)
+	{
+		List<MemModel> orders = ordersService.searchMem(name);
+
+		model.addAttribute("title", ordersService.getSearchTitle(name));
+		model.addAttribute("mems", orders);
+
 		return "mem";
 	}
 }

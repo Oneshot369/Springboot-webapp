@@ -4,21 +4,24 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 layout:decorate="layout/defaultTemplate.html">
 <head>
 	<style>
-		*
-		{
-			font-family: Arial, Helvetica, sans-serif;
-		}
-		h2{
-			color:blue;
-		}
-		p{
-			font-style: italic;
-		}
-		table, th, td{
+		/* Table style */
+		table, td{
 			border: 1px solid black;
 			border-collapse: collapse;
 			padding:2px;
+			font-size: larger;
+			
 		}
+		th{
+			border: 1px solid black;
+			border-collapse: collapse;
+			padding:2px;
+			font-weight: bolder;
+			padding-left: 3px;
+			min-width: 150px;
+			text-align: center;
+		}
+		/* Table style - End*/
 	</style>
 </head>
 <body>
@@ -36,7 +39,7 @@ layout:decorate="layout/defaultTemplate.html">
 				<td th:text="${mem.id}"></td>
 				<td th:text="${mem.img}"></td>
 				<td th:text="${mem.productName}"></td>
-				<td th:text="${mem.price}"></td>
+				<td class="price" th:text="${mem.price}"></td>
 				<td th:text="${mem.description}"></td>
 			</tr>
 		</table>

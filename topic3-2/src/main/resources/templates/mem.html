@@ -6,11 +6,8 @@ layout:decorate="layout/defaultTemplate.html">
 	<style>
 		/* Table style */
 		table, td{
-			border: 1px solid black;
-			border-collapse: collapse;
 			padding:2px;
 			font-size: larger;
-			
 		}
 		th{
 			border: 1px solid black;
@@ -47,7 +44,7 @@ layout:decorate="layout/defaultTemplate.html">
 		</form>
 
 		<!-- Table -->
-		<table>
+		<table style="border-collapse: separate;">
 			<!-- Table headers -->
 			<tr>
 				<th>ID</th>
@@ -57,7 +54,7 @@ layout:decorate="layout/defaultTemplate.html">
 				<th>Des.</th>
 			</tr>
 			<!-- Table items -->
-			<tr th:each="mem : ${mems}">
+			<tr class="table-row" th:each="mem : ${mems}">
 				<td th:text="${mem.id}"></td>
 				<td th:text="${mem.img}"></td>
 				<td th:text="${mem.productName}"></td>

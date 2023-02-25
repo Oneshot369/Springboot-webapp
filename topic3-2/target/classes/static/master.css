@@ -80,12 +80,30 @@ h2{
 }
 /* Footer  - END*/
 
+/* Table */
+
+table {
+    border-collapse: separate;
+    border-spacing: 0 15px;
+}
+
 /* tr */
 tr{
     background-color: var(--lGray);
-    color: var(--black)
+    color: var(--black);
+    
 }
 /* tr - END*/
+.table-row{
+    border-radius: 5px;
+}
+/* td */
+td{
+    border: 1px solid black;
+}
+/* td - END*/
+
+/* Table -end*/
 
 /* Button */
 .btn{

@@ -6,11 +6,8 @@ layout:decorate="layout/defaultTemplate.html">
 	<style>
 		/* Table style */
 		table, td{
-			border: 1px solid black;
-			border-collapse: collapse;
 			padding:2px;
 			font-size: larger;
-			
 		}
 		th{
 			border: 1px solid black;
@@ -36,19 +33,18 @@ layout:decorate="layout/defaultTemplate.html">
 		<!-- Searchbar -->
 		<form action="#" th:action="@{{name}}" method="get">
 			<div class="input-group mb-3 search">
-				<input type="text" name="name" class="form-control" placeholder="Search for memorabilia">
+				<input type="text" name="name" class="form-control" placeholder="Search for memorabilia" id="search-input">
 				<div class="input-group-append">
 					<button class="btn btn-outline-secondary" type="submit">Search</button>
+					
+					<div id = "clear-button" class="btn btn-outline-secondary">Clear</div>
+					
 				</div>
 			</div>
 		</form>
-		<!-- ASK TEACH FOR HELP -->
-		<form action="http://localhost:8080/mem/">
-			<button class="btn btn-outline-secondary">Clear</button>
-		</form>
 
 		<!-- Table -->
-		<table>
+		<table style="border-collapse: separate;">
 			<!-- Table headers -->
 			<tr>
 				<th>ID</th>
@@ -58,7 +54,7 @@ layout:decorate="layout/defaultTemplate.html">
 				<th>Des.</th>
 			</tr>
 			<!-- Table items -->
-			<tr th:each="mem : ${mems}">
+			<tr class="table-row" th:each="mem : ${mems}">
 				<td th:text="${mem.id}"></td>
 				<td th:text="${mem.img}"></td>
 				<td th:text="${mem.productName}"></td>
@@ -66,6 +62,19 @@ layout:decorate="layout/defaultTemplate.html">
 				<td th:text="${mem.description}"></td>
 			</tr>
 		</table>
+	<script>
+		document.getElementById("clear-button").addEventListener("click", myFunction);
+		
+		function myFunction() {
+			console.log("hello");
+			var getValue= document.getElementById("search-input");
+        	if (getValue.value !="") {
+            	getValue.value = "";
+        	}
+		}
+	</script>
 	</div>
 </body>
+
+
 </html>

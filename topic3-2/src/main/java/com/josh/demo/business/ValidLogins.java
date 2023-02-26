@@ -12,7 +12,7 @@ public class ValidLogins implements SecurityServiceInterface{
 				{ "Josh", "123" }, 
 				{ "Ace", "Gock" }, 
 				{ "Zack", "30s0v" },
-				{ "Brayan", "6969" }
+				{ "Brayan", "wasd" }
 			};
 				
 			//CHeck to see if the login matches our users list

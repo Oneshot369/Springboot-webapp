@@ -38,6 +38,16 @@ h2{
     width: 50px;
     padding-top: 10px;
 }
+
+h3{
+    color: black;
+    font-weight: bold;
+    font-size: large;
+    display: inline-block;
+    text-align: left;
+    width: 100px;
+    padding-top: 10px;
+}
 /* Header 2 - END*/
 
 /* mem input class */
@@ -121,5 +131,6 @@ th:last-child {
 .btn{
     background-color: #e1dfba;
     color: var(--black);
+
 }
 /* Button - END*/

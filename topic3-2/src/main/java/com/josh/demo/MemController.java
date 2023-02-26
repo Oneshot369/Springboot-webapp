@@ -41,9 +41,9 @@ public class MemController {
 			model.addAttribute("mems", orders);
 	
 			return "mem";
-
 		}
-		showAllOrders(model);
+		model.addAttribute("title", ordersService.getTitle());
+		model.addAttribute("mems", orders);
 		return "mem";
 	}
 }

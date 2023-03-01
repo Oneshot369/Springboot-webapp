@@ -19,6 +19,14 @@ public class MemModel {
 		this.description = dec;
 	}
 
+	public MemModel() {
+		this.id = null;
+		this.img = null;
+		this.productName = null;
+		this.price = 0f;
+		this.description = null;
+	}
+
 	public Long getId() {
 		return id;
 	}
@@ -60,8 +68,8 @@ public class MemModel {
 	}
 	@Override
 	public String toString() {
-		return "MemModel [id=" + id + ", productName=" + productName + ", price=" + price
-				+ ", quantity=" + description + "]";
+		return "New Model: id=" + id + ", productName=" + productName + ", price=" + price
+				+ ", quantity=" + description;
 	}
 
 	

@@ -2,19 +2,27 @@ package com.josh.demo;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import ch.qos.logback.core.model.Model;
+import org.springframework.ui.Model;
+import com.josh.model.NewUserModel;
 
 @Controller
 @RequestMapping("/newUser")
 public class NewUserController 
 {
-	@GetMapping("/")
-	public String showAllOrders(Model model)
-	{
+    @GetMapping("/")
+    public String showAllOrders(Model model)
+    {
+        model.addAttribute("newUserModel", new NewUserModel());
+        return "newUser";
+    }
 
-		return "newUser";
-	}
-	
+    @PostMapping("/add")
+    public String addNewUser(NewUserModel nUser, Model model){
+        model.addAttribute("newUser2", nUser);
+        return "newUser";
+    }
+    
 }

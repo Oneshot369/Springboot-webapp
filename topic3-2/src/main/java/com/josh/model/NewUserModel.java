@@ -8,6 +8,15 @@ public class NewUserModel {
     String Username;
     String Password;
     
+    
+    public NewUserModel() {
+        Name = null;
+        LName = null;
+        Email = null;
+        Username = null;
+        Password = null;
+    }
+
     public String getName() {
         return Name;
     }

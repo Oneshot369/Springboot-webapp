@@ -69,7 +69,7 @@ public class MemModel {
 	@Override
 	public String toString() {
 		return "New Model: id=" + id + ", productName=" + productName + ", price=" + price
-				+ ", quantity=" + description;
+				+ ", Desc=" + description;
 	}
 
 	

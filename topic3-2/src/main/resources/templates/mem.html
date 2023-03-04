@@ -54,13 +54,24 @@ layout:decorate="layout/defaultTemplate.html">
 				<th>Des.</th>
 			</tr>
 			<!-- Table items -->
-			<tr class="table-row" th:each="mem : ${mems}">
-				<td th:text="${mem.id}" style="text-align: center;"></td>
-				<td th:text="${mem.img}" style="text-align: center;"></td>
-				<td th:text="${mem.productName}"></td>
-				<td class="price" th:text="${mem.price}"></td>
-				<td th:text="${mem.description}"></td>
-			</tr>
+
+			<!-- Form does not work -->
+			<!-- !!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+			<!-- <form action="#" th:action="@{{edit}}" th:object="${memModel}" method="get"> -->
+			<!-- !!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+
+				<tr class="table-row" th:each="mem : ${mems}">
+					<td th:text="${mem.id}" style="text-align: center;"></td>
+					<td th:text="${mem.img}" style="text-align: center;"></td>
+					<td th:text="${mem.productName}" ></td>
+					<td class="price" th:text="${mem.price}" ></td>
+					<td th:text="${mem.description}"></td>
+					<td><button class="btn btn-outline-secondary" type="submit">Edit</button></td>
+				</tr>
+
+			<!-- !!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+			<!-- </form> -->
+			<!-- !!!!!!!!!!!!!!!!!!!!!!!!!!! -->
 		</table>
 	<script>
 		document.getElementById("clear-button").addEventListener("click", myFunction);

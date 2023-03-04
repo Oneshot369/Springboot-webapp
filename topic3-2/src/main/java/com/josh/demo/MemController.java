@@ -26,7 +26,7 @@ public class MemController {
 		
 		model.addAttribute("title", ordersService.getTitle());
 		model.addAttribute("mems", orders);
-	
+		model.addAttribute("memModel", new MemModel());
 		return "mem";
 	}
 
@@ -46,4 +46,7 @@ public class MemController {
 		model.addAttribute("mems", orders);
 		return "mem";
 	}
+
+	
+	
 }

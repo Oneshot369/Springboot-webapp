@@ -23,6 +23,9 @@ layout:decorate="layout/defaultTemplate.html">
 			padding-left: 25%;
 			padding-right: 25%;
 		}
+		.editbtn{
+			min-width: 0;
+		}
 	</style>
 </head>
 <body>
@@ -46,13 +49,16 @@ layout:decorate="layout/defaultTemplate.html">
 		<!-- Table -->
 		<table style="border-collapse: separate;">
 			<!-- Table headers -->
-			<tr>
-				<th>ID</th>
-				<th>Image</th>
-				<th>Product Name</th>
-				<th>Price</th>
-				<th>Des.</th>
-			</tr>
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Image</th>
+					<th>Product Name</th>
+					<th>Price</th>
+					<th>Des.</th>
+					<th class="editbtn">Edit</th>
+				</tr>
+			</thead>
 			<!-- Table items -->
 
 			<!-- Form does not work -->
@@ -60,15 +66,32 @@ layout:decorate="layout/defaultTemplate.html">
 			<!-- <form action="#" th:action="@{{edit}}" th:object="${memModel}" method="get"> -->
 			<!-- !!!!!!!!!!!!!!!!!!!!!!!!!!! -->
 
+			<!-- Row, each row is a mem -->
+			<tbody>
 				<tr class="table-row" th:each="mem : ${mems}">
-					<td th:text="${mem.id}" style="text-align: center;"></td>
-					<td th:text="${mem.img}" style="text-align: center;"></td>
-					<td th:text="${mem.productName}" ></td>
-					<td class="price" th:text="${mem.price}" ></td>
-					<td th:text="${mem.description}"></td>
-					<td><button class="btn btn-outline-secondary" type="submit">Edit</button></td>
+					<td th:text="${mem.id}" style="text-align: center;" name="id"></td>
+					<td th:text="${mem.img}" style="text-align: center;" name="img"></td>
+					<td th:text="${mem.productName}" name="productName"></td>
+					<td class="price" th:text="${mem.price}" name="price"></td>
+					<td th:text="${mem.description}" name="description"></td>
+					<td>
+						<form action="#" th:action="@{editMem}" th:object="${mem}" method="post">
+							<input name="id" type="hidden" th:value="${mem.id}">
+							<input name="img" type="hidden" th:value="${mem.img}">
+							<input name="productName" type="hidden" th:value="${mem.productName}">
+							<input name="price" type="hidden" th:value="${mem.price}">
+							<input name="description" type="hidden" th:value="${mem.description}">
+							<button class="btn btn-outline-secondary" type="submit">Edit</button>
+						</form>
+					</td>
+					<td>
+						<form action="#" th:action="@{delMem}" th:object="${mem}" method="post">
+							<input name="id" type="hidden" th:value="${mem.id}">
+							<button class="btn btn-outline-secondary" type="submit" style="background-color: lightcoral;">Delete</button>
+						</form>
+					</td>
 				</tr>
-
+			</tbody>
 			<!-- !!!!!!!!!!!!!!!!!!!!!!!!!!! -->
 			<!-- </form> -->
 			<!-- !!!!!!!!!!!!!!!!!!!!!!!!!!! -->

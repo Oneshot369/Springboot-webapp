@@ -8,7 +8,11 @@ import com.josh.model.MemModel;
 
 public class MemBusinessService implements MemBusinessServiceInterface{
 	
-	private List<MemModel> mem;
+	private List<MemModel> mem = new ArrayList<MemModel>();
+	
+	public MemBusinessService() {
+		initializeOrders();
+	}
 	private void initializeOrders()
 	{
 		mem.add(new MemModel(0L, "000", "Darth Vaders Mask", 900000.00f, "It's what the bad guy wore in the star wars movie"));
@@ -25,8 +29,6 @@ public class MemBusinessService implements MemBusinessServiceInterface{
 
 	@Override
 	public List<MemModel> getMem() {
-		//first update our list
-		initializeOrders();
 		//then return our list
 		return mem;
 	}
@@ -45,7 +47,7 @@ public class MemBusinessService implements MemBusinessServiceInterface{
 	@Override
 	public void init() {
 		// TODO Auto-generated method stub
-		mem = new ArrayList<MemModel>();
+		
 		System.out.println("Init method of the OrdersBusinessService was called");
 	}
 
@@ -57,8 +59,6 @@ public class MemBusinessService implements MemBusinessServiceInterface{
 
 	@Override
 	public List<MemModel> searchMem(String name) {
-		//first update our list
-		initializeOrders();
 		
 		List<MemModel> results = mem
 			.stream()
@@ -67,6 +67,31 @@ public class MemBusinessService implements MemBusinessServiceInterface{
 			.collect(Collectors.toList());
 
 		return results;
+	}
+	@Override
+	public void deleteOne(long id) { 
+		for(int i = 0; i < mem.size(); i++){
+			if(mem.get(i).getId() == id){
+				mem.remove(i);
+			}
+		}
+	}
+	@Override
+	public MemModel updateOne(MemModel memToUp) {
+		long idOfMem = memToUp.getId();
+
+		mem
+		.stream().forEach(m ->
+		{
+			if(m.getId() == idOfMem){
+				m.setImg(memToUp.getImg());
+				m.setPrice(memToUp.getPrice());
+				m.setProductName(memToUp.getProductName());
+				m.setDescription(memToUp.getDescription());
+			}
+		}
+		);
+		return memToUp;
 	}
 
 }

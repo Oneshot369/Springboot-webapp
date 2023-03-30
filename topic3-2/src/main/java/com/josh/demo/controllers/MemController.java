@@ -1,11 +1,15 @@
-package com.josh.demo;
+package com.josh.demo.controllers;
 
 import java.util.List;
+
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -47,6 +51,30 @@ public class MemController {
 		return "mem";
 	}
 
-	
+	@PostMapping("/editMem")
+	public String editMem(MemModel mem ,Model model){
+		model.addAttribute("memModel", mem);
+		return "editMem";
+	}
+
+	@PostMapping("/delMem")
+	public String deleteMem(long id, Model model){
+		ordersService.deleteOne(id);
+		List<MemModel> orders = ordersService.getMem();
+		model.addAttribute("mems", orders);
+		model.addAttribute("title", ordersService.getTitle());
+
+		return "mem";
+	}
+
+	@PostMapping("/doUpdate")
+	public String doUpdate(MemModel mem, Model model){
+		ordersService.updateOne(mem);
+
+		List<MemModel> orders = ordersService.getMem();
+		model.addAttribute("mems", orders);
+		model.addAttribute("title", ordersService.getTitle());
+		return "mem";
+	}
 	
 }

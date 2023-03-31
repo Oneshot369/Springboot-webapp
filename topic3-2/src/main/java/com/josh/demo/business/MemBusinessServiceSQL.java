@@ -21,16 +21,17 @@ public class MemBusinessServiceSQL implements MemBusinessServiceInterface{
     public List<MemModel> getMem() {
        return mySQLData.getAll();
     }
-    //TODO Brayan
+    //DONE: Brayan
     @Override
-    public List<MemModel> searchMem(String name) {
-        throw new UnsupportedOperationException("Unimplemented method 'searchMem'");
+    public List<MemModel> searchMem(String searchTerm) {
+
+        return mySQLData.searchByName(searchTerm);
     }
-    //TODO Brayan
+    //DONE: Brayan
     @Override
-    public int addOne(MemModel memToAdd) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'addOne'");
+    public long addOne(MemModel memToAdd) {
+       
+        return mySQLData.addOne(memToAdd);
     }
     @Override
     public void deleteOne(long id) {

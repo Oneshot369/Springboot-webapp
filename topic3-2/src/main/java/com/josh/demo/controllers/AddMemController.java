@@ -28,7 +28,7 @@ public class AddMemController
 	@PostMapping("/add")
 	public String addMem(MemModel mem, Model model)
 	{
-		int result = ordersService.addOne(mem);
+		long result = ordersService.addOne(mem);
 		if(result > 0){
 			model.addAttribute("memModel2", "Model added! " + mem.toString());
 		}

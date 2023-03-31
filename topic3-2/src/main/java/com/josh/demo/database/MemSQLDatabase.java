@@ -29,9 +29,25 @@ public class MemSQLDatabase {
             );
     }
 
-    //TODO: Brayan
-    public MemModel searchByName(String name){
-        throw new UnsupportedOperationException();
+    //DONE: Brayan
+    public List<MemModel> searchByName(String searchTerm){
+
+        return jdbc.query(
+            "select * from mem where PRODUCT_NAME LIKE ?",
+            new MemMapper(),
+            new Object[] { "%" + searchTerm + "%" }
+            );
+    }
+
+    //DONE: Brayan
+    public long addOne(MemModel newOrder){
+
+        return jdbc.update("insert into mem (PRODUCT_NAME, PRICE, DESCRIPTION, IMG) values (?,?,?,?)",
+        newOrder.getProductName(),
+        newOrder.getPrice(),
+        newOrder.getDescription(),
+        newOrder.getImg()
+        );
     }
 
     public void deleteOne(long id){

@@ -7,7 +7,6 @@ import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 
-import com.josh.model.MemEntity;
 import com.josh.model.MemMapper;
 import com.josh.model.MemModel;
 
@@ -31,17 +30,32 @@ public class MemSQLDatabase {
     }
 
     //TODO: Brayan
-    public MemEntity searchByName(String name){
+    public MemModel searchByName(String name){
         throw new UnsupportedOperationException();
     }
 
-    //TODO: Josh
     public void deleteOne(long id){
-        throw new UnsupportedOperationException();
+        jdbc.update(
+            "delete from mem where ID=?", 
+            id
+            );
     }
     
-    //TODO: Josh
-    public MemEntity editOne(MemEntity memToUpdate){
-        throw new UnsupportedOperationException();
+    public MemModel editOne(MemModel memToUpdate){
+
+        int result = jdbc.update(
+            "update mem set PRODUCT_NAME = ?, PRICE = ?, DESCRIPTION = ?, IMG = ? where ID = ?",
+            memToUpdate.getProductName(),
+            memToUpdate.getPrice(),
+            memToUpdate.getDescription(),
+            memToUpdate.getImg(),
+            memToUpdate.getId()
+            );
+        if(result > 0){
+            return memToUpdate;
+        }
+        else{
+            return null;
+        }
     }
 }

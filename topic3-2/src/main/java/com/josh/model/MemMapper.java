@@ -11,8 +11,8 @@ public class MemMapper implements RowMapper<MemModel>{
     public MemModel mapRow(ResultSet rs, int rowNum) throws SQLException {
         MemModel newMem = new MemModel(
             rs.getLong("ID"),
-            rs.getString("PRODUCT_NAME"),
             rs.getString("IMG"),
+            rs.getString("PRODUCT_NAME"),
             rs.getFloat("PRICE"),
             rs.getString("DESCRIPTION")  
         );

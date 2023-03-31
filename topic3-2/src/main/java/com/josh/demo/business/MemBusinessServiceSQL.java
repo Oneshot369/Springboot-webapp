@@ -5,6 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.josh.model.MemModel;
+
+import ch.qos.logback.core.net.SyslogOutputStream;
+
 import com.josh.demo.database.MemSQLDatabase;
 
 public class MemBusinessServiceSQL implements MemBusinessServiceInterface{
@@ -25,15 +28,16 @@ public class MemBusinessServiceSQL implements MemBusinessServiceInterface{
     public List<MemModel> searchMem(String name) {
         throw new UnsupportedOperationException("Unimplemented method 'searchMem'");
     }
-    //TODO Josh
     @Override
     public void deleteOne(long id) {
-        throw new UnsupportedOperationException("Unimplemented method 'deleteOne'");
+        mySQLData.deleteOne(id);
     }
-    //TODO Josh
     @Override
     public MemModel updateOne(MemModel memToUp) {
-        throw new UnsupportedOperationException("Unimplemented method 'updateOne'");
+        if(mySQLData.editOne(memToUp) == null){
+            System.out.println("An Error happened with updating a mem");
+        }
+        return memToUp;
     }
 
     //-------------------------------

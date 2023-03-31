@@ -21,7 +21,7 @@ public class SpringConfig
 	@SessionScope
 	public MemBusinessServiceInterface getOrdersBusiness()
 	{
-		//This is our list
+		//This is our hard coded list
 		//return new MemBusinessService();
 
 		//This is our SQL

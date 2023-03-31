@@ -6,8 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.josh.model.MemModel;
 
-import ch.qos.logback.core.net.SyslogOutputStream;
-
 import com.josh.demo.database.MemSQLDatabase;
 
 public class MemBusinessServiceSQL implements MemBusinessServiceInterface{

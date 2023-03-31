@@ -51,7 +51,6 @@ public class MemController {
 	@PostMapping("/editMem")
 	public String editMem(MemModel mem ,Model model){
 		model.addAttribute("memModel", mem);
-		System.out.println(mem);
 		return "editMem";
 	}
 

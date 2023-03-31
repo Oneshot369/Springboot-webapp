@@ -93,5 +93,11 @@ public class MemBusinessService implements MemBusinessServiceInterface{
 		);
 		return memToUp;
 	}
+	@Override
+	public int addOne(MemModel memToAdd) {
+		// TODO Auto-generated method stub
+		mem.add(memToAdd);
+		return 1;
+	}
 
 }

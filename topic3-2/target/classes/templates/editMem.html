@@ -25,7 +25,7 @@ layout:decorate="layout/defaultTemplate.html">
 		<form action="#" th:action="@{/mem/doUpdate}" th:object="${memModel}" method="post">
 			<div class="input-forms-cont">
 				<div class="input-form">
-					<h2>ID:</h2><input name="id" th:value="${memModel.id}" th:field="${memModel.id}" class="mem-input" type="text" placeholder=" Enter ID" required disabled="disabled">
+					<h2>ID:</h2><input name="id" th:value="${memModel.id}" th:field="${memModel.id}" class="mem-input" type="text" placeholder=" Enter ID" required >
 				</div>
 				<div class="input-form">
 					<h2>Name:</h2><input name="productName" th:value="${memModel.productName}" th:field="${memModel.productName}" class="mem-input" type="text" placeholder=" Enter Name" required>

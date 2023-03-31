@@ -6,6 +6,7 @@ import com.josh.model.MemModel;
 public interface MemBusinessServiceInterface {
 	//accessing data
 	public List<MemModel> getMem();
+	public int addOne(MemModel memToAdd);
 	public List<MemModel> searchMem(String name);
 	public void deleteOne(long id);
 	public MemModel updateOne(MemModel memToUp);

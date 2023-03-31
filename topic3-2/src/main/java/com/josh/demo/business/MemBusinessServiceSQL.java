@@ -28,6 +28,12 @@ public class MemBusinessServiceSQL implements MemBusinessServiceInterface{
     public List<MemModel> searchMem(String name) {
         throw new UnsupportedOperationException("Unimplemented method 'searchMem'");
     }
+    //TODO Brayan
+    @Override
+    public int addOne(MemModel memToAdd) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'addOne'");
+    }
     @Override
     public void deleteOne(long id) {
         mySQLData.deleteOne(id);

@@ -26,6 +26,10 @@ layout:decorate="layout/defaultTemplate.html">
 		.editbtn{
 			min-width: 0;
 		}
+		img{
+			max-width: 100px;
+			max-height: 100px;
+		}
 	</style>
 </head>
 <body>
@@ -71,7 +75,10 @@ layout:decorate="layout/defaultTemplate.html">
 			<tbody>
 				<tr class="table-row" th:each="mem : ${mems}">
 					<td th:text="${mem.id}" style="text-align: center;" name="id"></td>
-					<td th:text="${mem.img}" style="text-align: center;" name="img"></td>
+					<td  style="text-align: center;" name="img">
+						<!-- <img src="/topic3-2/src/main/resources/static/img/darth.jpg" name="img"> -->
+						<img th:src="${mem.img}" name=""> 
+					</td>
 					<td th:text="${mem.productName}" name="productName"></td>
 					<td class="price" th:text="${mem.price}" name="price"></td>
 					<td th:text="${mem.description}" name="description"></td>

@@ -21,13 +21,11 @@ public class MemBusinessServiceSQL implements MemBusinessServiceInterface{
     public List<MemModel> getMem() {
        return mySQLData.getAll();
     }
-    //DONE: Brayan
     @Override
     public List<MemModel> searchMem(String searchTerm) {
 
         return mySQLData.searchByName(searchTerm);
     }
-    //DONE: Brayan
     @Override
     public long addOne(MemModel memToAdd) {
        

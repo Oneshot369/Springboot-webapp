@@ -1,8 +1,8 @@
 /* Variables */
 :root{
-    --beige: #e1dfba;
-    --lGray: #7f7e90;
-    --dGray: #4d424d;
+    --beige: maroon;
+    --lGray: #A3A3A3;
+    --dGray: #C9C9C9;
     --black: #36292c;
 }
 /* Variables - END*/
@@ -17,7 +17,6 @@ body{
 
 /* Header 1 */
 h1{
-    background-color: var(--lGray);
     color: black;
     font-weight: bolder;
     margin-left: 20%; 
@@ -78,7 +77,6 @@ h3{
 .navbar{
     background-color: var(--beige); 
     border:2px solid var(--black);
-    color: var(--black);
 }
 /* Navbar - END */
 
@@ -104,7 +102,8 @@ tr{
     border-radius: 20px;
 }
 tr:hover{
-    background-color: var(--beige);
+    background-color: maroon;
+    color: white;
 }
 /* tr - END*/
 
@@ -129,8 +128,8 @@ th:last-child {
 
 /* Button */
 .btn{
-    background-color: #e1dfba;
-    color: var(--black);
+    background-color: maroon;
+    color: white;
 
 }
 /* Button - END*/
